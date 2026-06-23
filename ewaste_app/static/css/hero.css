@@ -1,0 +1,265 @@
+/* ============================================
+   HERO — the depreciation curve is the thesis.
+   Devices don't just get old, they decay along a
+   measurable curve. That curve is the visual spine
+   of the whole product (reappears in forecasting).
+============================================ */
+
+.hero {
+  position: relative;
+  padding: 11rem 0 var(--space-16);
+  background: var(--ink-950);
+  overflow: hidden;
+  color: var(--paper-0);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 0%, rgba(34,197,94,0.16), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(16,185,129,0.10), transparent 60%);
+  pointer-events: none;
+}
+
+/* faint circuit-grid texture */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7) 30%, transparent 90%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero { padding: 9rem 0 var(--space-12); }
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-400);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 600;
+  margin-bottom: var(--space-5);
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--green-400);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px var(--green-400);
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 4.6vw, var(--text-4xl));
+  color: var(--paper-0);
+  letter-spacing: -0.02em;
+  max-width: 11.5ch;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--green-400);
+}
+
+.hero-sub {
+  margin-top: var(--space-5);
+  font-size: var(--text-md);
+  color: rgba(255,255,255,0.68);
+  max-width: 42ch;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.hero-meta {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.hero-meta-item .num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  color: var(--paper-0);
+  font-weight: 600;
+  display: block;
+}
+.hero-meta-item .label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* ---- Visual: the curve panel ---- */
+.hero-visual {
+  position: relative;
+}
+
+.curve-panel {
+  position: relative;
+  background: linear-gradient(165deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  backdrop-filter: blur(20px);
+}
+
+.curve-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-4);
+}
+
+.curve-panel-head .title {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mint-300);
+}
+
+.curve-panel-head .value {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  color: var(--paper-0);
+  font-weight: 600;
+}
+
+.curve-svg-wrap {
+  width: 100%;
+  height: 220px;
+}
+
+.curve-path {
+  fill: none;
+  stroke: var(--green-400);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.5));
+}
+
+.curve-fill {
+  fill: url(#curveGradient);
+  opacity: 0.7;
+}
+
+.curve-grid-line {
+  stroke: rgba(255,255,255,0.08);
+  stroke-width: 1;
+}
+
+.curve-dot {
+  fill: var(--green-400);
+  filter: drop-shadow(0 0 6px rgba(74,222,128,0.8));
+}
+
+.curve-marker-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  fill: var(--gray-400);
+}
+
+.curve-now-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: var(--paper-0);
+  font-weight: 600;
+}
+
+.curve-panel-foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.curve-foot-stat .k {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.curve-foot-stat .v {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  color: var(--paper-0);
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+.curve-foot-stat .v.down { color: var(--amber-500); }
+.curve-foot-stat .v.up { color: var(--green-400); }
+
+/* floating device chip — orbits near the panel */
+.float-chip {
+  position: absolute;
+  background: rgba(13, 21, 18, 0.92);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--paper-0);
+  box-shadow: var(--shadow-lg);
+  animation: float-chip 6s var(--ease-out) infinite;
+}
+.float-chip.chip-2 { animation-delay: -3s; }
+
+.float-chip .chip-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green-400);
+}
+.float-chip.warn .chip-dot { background: var(--amber-500); }
+
+@keyframes float-chip {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.chip-1 { top: -18px; right: 12%; }
+.chip-2 { bottom: -16px; left: 6%; }
+
+@media (max-width: 980px) {
+  .float-chip { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-chip { animation: none; }
+}

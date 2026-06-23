@@ -1,0 +1,190 @@
+/* ============================================
+   BASE — reset, typography, primitives
+============================================ */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--gray-900);
+  background: var(--paper-50);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  color: var(--ink-950);
+  letter-spacing: -0.01em;
+  line-height: 1.08;
+}
+
+p { margin: 0; }
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 var(--space-4); }
+}
+
+section {
+  position: relative;
+}
+
+/* ---- Eyebrow / datasheet label ---- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-600);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 600;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--green-500);
+  border-radius: 1px;
+  transform: rotate(45deg);
+  box-shadow: 0 0 8px var(--green-glow-strong);
+}
+
+/* ---- Section heading pattern ---- */
+.section-head {
+  max-width: 640px;
+  margin-bottom: var(--space-10);
+}
+
+.section-head h2 {
+  font-size: var(--text-2xl);
+  margin-top: var(--space-3);
+}
+
+.section-head p {
+  color: var(--gray-500);
+  font-size: var(--text-md);
+  margin-top: var(--space-3);
+  line-height: 1.65;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-md);
+  transition: transform var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out),
+              background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--green-600);
+  color: var(--paper-0);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, var(--shadow-md);
+}
+.btn-primary:hover {
+  background: var(--green-500);
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.16) inset, var(--shadow-lg), 0 0 0 4px var(--green-glow);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink-950);
+  border: 1.5px solid var(--line-300);
+}
+.btn-secondary:hover {
+  border-color: var(--green-600);
+  background: var(--green-glow);
+  color: var(--forest-900);
+}
+
+.btn-ghost-light {
+  background: rgba(255,255,255,0.08);
+  color: var(--paper-0);
+  border: 1.5px solid rgba(255,255,255,0.18);
+}
+.btn-ghost-light:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.32);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--green-500);
+  outline-offset: 2px;
+}
+
+/* ---- Scroll reveal ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Skip link / focus ---- */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--green-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

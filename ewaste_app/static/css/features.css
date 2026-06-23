@@ -1,0 +1,106 @@
+/* ============================================
+   FEATURES — Platform Capabilities
+============================================ */
+
+.features {
+  padding: var(--space-16) 0;
+  background: var(--paper-50);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line-200);
+  border: 1px solid var(--line-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+@media (max-width: 980px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .features-grid { grid-template-columns: 1fr; }
+}
+
+.feature-card {
+  background: var(--paper-0);
+  padding: var(--space-6);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: background var(--dur-base) var(--ease-out);
+  cursor: pointer;
+  position: relative;
+  min-height: 220px;
+}
+
+.feature-card:hover {
+  background: var(--paper-100);
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--green-600);
+  transition: width var(--dur-base) var(--ease-out);
+}
+.feature-card:hover::after { width: 100%; }
+
+.feature-index {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--gray-400);
+  letter-spacing: 0.06em;
+}
+
+.feature-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--forest-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-400);
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+.feature-card:hover .feature-icon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.feature-card h3 {
+  font-size: var(--text-md);
+  font-weight: 600;
+  margin-top: auto;
+}
+
+.feature-card p {
+  color: var(--gray-500);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.feature-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--green-600);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+}
+.feature-card:hover .feature-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}

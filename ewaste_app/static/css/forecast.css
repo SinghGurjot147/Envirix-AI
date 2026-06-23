@@ -1,0 +1,172 @@
+/* ============================================
+   FORECASTING — data intelligence panels
+============================================ */
+
+.forecast {
+  padding: var(--space-16) 0;
+  background: var(--paper-0);
+  border-top: 1px solid var(--line-200);
+}
+
+.forecast-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+@media (max-width: 900px) {
+  .forecast-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+.stat-card {
+  border: 1px solid var(--line-200);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  background: var(--paper-50);
+  transition: border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+}
+.stat-card:hover {
+  border-color: var(--green-600);
+  transform: translateY(-2px);
+}
+
+.stat-card .stat-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stat-card .stat-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--ink-950);
+  margin-top: var(--space-2);
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+.stat-card .stat-value .unit {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.stat-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: var(--space-3);
+}
+.stat-trend.up { color: var(--green-600); }
+.stat-trend.down { color: #dc2626; }
+.stat-trend.warn { color: var(--amber-500); }
+
+.forecast-main {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: var(--space-6);
+}
+@media (max-width: 980px) {
+  .forecast-main { grid-template-columns: 1fr; }
+}
+
+.chart-panel {
+  border: 1px solid var(--line-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  background: var(--paper-0);
+}
+
+.chart-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.chart-panel-head h3 {
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+.chart-panel-head p {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  margin-top: 0.2rem;
+}
+
+.chart-legend {
+  display: flex;
+  gap: var(--space-4);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--gray-500);
+  text-transform: uppercase;
+}
+.legend-item .swatch {
+  width: 8px; height: 8px;
+  border-radius: 2px;
+}
+
+.forecast-chart-svg { width: 100%; height: 280px; }
+.forecast-area { opacity: 0.16; }
+.forecast-line-actual { stroke: var(--ink-950); stroke-width: 2.5; fill: none; }
+.forecast-line-projected { stroke: var(--green-600); stroke-width: 2.5; fill: none; stroke-dasharray: 6 5; }
+.forecast-axis-label { font-family: var(--font-mono); font-size: 10px; fill: var(--gray-400); }
+.forecast-grid { stroke: var(--line-200); stroke-width: 1; }
+.forecast-point { fill: var(--paper-0); stroke-width: 2; }
+
+.material-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.material-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 50px;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.material-row .name {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.material-row .track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--paper-100);
+  overflow: hidden;
+}
+.material-row .track span {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1s var(--ease-out);
+}
+.material-row.in-view .track span { transform: scaleX(1); }
+
+.material-row .pct {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink-950);
+  text-align: right;
+}
