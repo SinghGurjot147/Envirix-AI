@@ -735,10 +735,27 @@
         <p class="card-sub" id="result-resale-sub">Adjusted for age and condition.</p>
       </div>
       <div class="result-card">
-        <span class="card-label">Value retained</span>
+        <span class="card-label"> Retained Value</span>
         <div class="card-value" id="result-retained-pct">37<span class="small">%</span></div>
         <p class="card-sub" id="result-retained-sub">Of predicted market value.</p>
       </div>
+      <div class="result-card score-card">
+    <span class="card-label">Health Score</span>
+    <div class="card-value" id="result-health-score">--</div>
+    <p class="card-sub">Overall device condition score.</p>
+    </div>
+
+    <div class="result-card score-card">
+    <span class="card-label">Remaining Life</span>
+    <div class="card-value" id="result-remaining-life">--</div>
+    <p class="card-sub">Estimated usable lifespan remaining.</p>
+    </div>
+
+    <div class="result-card score-card">
+    <span class="card-label">Circular Score</span>
+    <div class="card-value" id="result-circular-score">--</div>
+    <p class="card-sub">Sustainability and recovery potential.</p>
+    </div>
     </div>
 
     <div class="results-detail">
@@ -756,23 +773,28 @@
       <div class="detail-panel reveal">
         <h3>Recommendation &amp; insights</h3>
         <div class="insight-item">
+    <span class="insight-icon">💚</span>
+    <p id="insight-health">
+        Device health analysis will appear here.
+    </p>
+</div>
+        <div class="insight-item">
           <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L9.5 5.5L14 6L10.5 9L11.5 13.5L8 11L4.5 13.5L5.5 9L2 6L6.5 5.5L8 1Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
           <p id="insight-recommendation"><strong>Refurbish and resell</strong> — at this condition tier, resale recovers more value than trade-in credit.</p>
         </div>
         <div class="insight-item">
           <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 4V9M8 11.5V12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/></svg></span>
-          <p id="insight-condition">Condition is the largest adjustable factor between this grade and "Excellent."</p>
+          <p id="insight-condition">Condition analysis will appear here after device evaluation.</p>
         </div>
         <div class="insight-item">
           <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13V8M8 13V3M13 13V6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
-          <p id="insight-age">Value retention reflects both elapsed time since purchase and reported condition.</p>
+          <p id="insight-age">Lifespan and sustainability insights will appear here after analysis.</p>
         </div>
       </div>
     </div>
 
     <div class="results-actions reveal">
       <a href="#analyze" class="btn btn-primary">Analyze another device</a>
-      <a href="#dashboard" class="btn btn-secondary">View full dashboard</a>
     </div>
   </div>
 </section>

@@ -274,14 +274,14 @@ if (ageMode) {
       document.getElementById('result-retained-sub').textContent =
         'Of predicted market value, after depreciation.';
 
-//         document.getElementById('result-health-score').textContent =
-//     Math.round(health_score) + '/100';
+        document.getElementById('result-health-score').textContent =
+    Math.round(health_score) + '/100';
 
-// document.getElementById('result-remaining-life').textContent =
-//     remaining_life.toFixed(1) + ' yrs';
+document.getElementById('result-remaining-life').textContent =
+    remaining_life.toFixed(1) + ' yrs';
 
-// document.getElementById('result-circular-score').textContent =
-//     Math.round(circular_score) + '/100';
+document.getElementById('result-circular-score').textContent =
+    Math.round(circular_score) + '/100';
 
       document.getElementById('detail-device-type').textContent = inputs.device_type;
       document.getElementById('detail-brand').textContent = inputs.brand;
@@ -290,51 +290,54 @@ if (ageMode) {
       document.getElementById('detail-screen').textContent = `${inputs.screen_size} in`;
       document.getElementById('detail-age').textContent = `${age_years} year${age_years === 1 ? '' : 's'}`;
       document.getElementById('detail-condition').textContent = inputs.condition;
-//       const healthEl = document.getElementById('insight-health');
 
-// if (health_score >= 85) {
-//     healthEl.innerHTML =
-//         '<strong>Excellent health.</strong> Device is in strong condition with significant usable life remaining.';
-// }
-// else if (health_score >= 70) {
-//     healthEl.innerHTML =
-//         '<strong>Good health.</strong> Device remains reliable and suitable for continued use or resale.';
-// }
-// else if (health_score >= 50) {
-//     healthEl.innerHTML =
-//         '<strong>Average health.</strong> Performance and value are beginning to decline but refurbishment may still be worthwhile.';
-// }
-// else {
-//     healthEl.innerHTML =
-//         '<strong>Poor health.</strong> Device is nearing end-of-life and may be better suited for repair or recycling.';
-// }
+const healthEl = document.getElementById('insight-health');
+
+if (health_score >= 80) {
+    healthEl.innerHTML =
+    '<strong>Excellent Health.</strong> The device is in excellent condition with strong long-term usability.';
+}
+else if (health_score >= 60) {
+    healthEl.innerHTML =
+    '<strong>Good Health.</strong> The device remains reliable and suitable for continued use.';
+}
+else if (health_score >= 40) {
+    healthEl.innerHTML =
+    '<strong>Moderate Health.</strong> Signs of aging are becoming noticeable. Maintenance may improve longevity.';
+}
+else if (health_score >= 20) {
+    healthEl.innerHTML =
+    '<strong>Low Health.</strong> The device is approaching end-of-life and may require repair before further use.';
+}
+else {
+    healthEl.innerHTML =
+    '<strong>Critical Health.</strong> The device has very limited remaining usability.';
+}
 
      const recEl = document.getElementById('insight-recommendation');
 
-if (recommendation === "Keep Using") {
+if (retained_pct >= 70) {
     recEl.innerHTML =
-        '<strong>Keep Using</strong> — device health remains high and replacement is not yet necessary.';
+    '<strong>Reuse</strong> — The device retains substantial value and remains suitable for continued use.';
 }
-else if (recommendation === "Refurbish") {
+else if (retained_pct >= 40) {
     recEl.innerHTML =
-        '<strong>Refurbish</strong> — repairing or upgrading the device can extend its useful lifespan.';
+    '<strong>Refurbish</strong> — The device still holds meaningful market value and can benefit from refurbishment before resale or reuse.';
 }
-else if (recommendation === "Recycle") {
+else if (retained_pct >= 20) {
     recEl.innerHTML =
-        '<strong>Recycle Responsibly</strong> — recovery of materials may provide more value than continued use.';
+    '<strong>Repair</strong> — Repairing key components may extend the device\'s useful life and recover additional value.';
 }
 else {
     recEl.innerHTML =
-        '<strong>Review Device</strong> — additional inspection is recommended before making a decision.';
+    '<strong>Recycle</strong> — Material recovery through certified recycling is likely the most sustainable option.';
 }
 
       document.getElementById('insight-condition').textContent =
-        inputs.condition === 'Excellent'
-          ? 'This device is already at the top condition tier — little further value to recover here.'
-          : 'Condition is the largest adjustable factor between this grade and "Excellent."';
+  `Reported condition: ${inputs.condition}. This condition directly influences the device health score, remaining lifespan, and resale value.`;
 
-      document.getElementById('insight-age').textContent =
-        `At ${age_years} year${age_years === 1 ? '' : 's'} old, this device retains ${retained_pct}% of its predicted market value.`;
+     document.getElementById('insight-age').textContent =
+  `Estimated remaining lifespan: ${remaining_life.toFixed(1)} years. Circular economy score: ${Math.round(circular_score)}/100.`;
 
       document.getElementById('results')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }

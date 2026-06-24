@@ -170,3 +170,70 @@
   margin-top: var(--space-6);
   flex-wrap: wrap;
 }
+/* ============================================
+   AI SCORE CARDS
+============================================ */
+
+.result-card.score-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.result-card.score-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.result-card.score-card .card-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Health Score */
+#result-health-score {
+    color: #16a34a;
+}
+
+/* Remaining Life */
+#result-remaining-life {
+    color: #2563eb;
+}
+
+/* Circular Score */
+#result-circular-score {
+    color: #9333ea;
+}
+
+/* Health Insight Box */
+#insight-health {
+    font-size: var(--text-sm);
+    line-height: 1.7;
+}
+
+#insight-health strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+/* Subtle glow */
+.result-card.score-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.result-card:nth-child(4)::before {
+    background: #16a34a;
+}
+
+.result-card:nth-child(5)::before {
+    background: #2563eb;
+}
+
+.result-card:nth-child(6)::before {
+    background: #9333ea;
+}
