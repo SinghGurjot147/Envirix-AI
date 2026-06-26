@@ -200,10 +200,14 @@ def predict():
         0.3 * value_retention_score
     )
 
-    if health_score >= 80:
-        recommendation = "Keep Using"
-    elif health_score >= 50:
+    # Recommendation based on retained value
+
+    if retained_pct >= 70:
+        recommendation = "Reuse"
+    elif retained_pct >= 40:
         recommendation = "Refurbish"
+    elif retained_pct >= 20:
+        recommendation = "Repair"
     else:
         recommendation = "Recycle"
 

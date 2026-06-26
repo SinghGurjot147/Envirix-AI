@@ -572,135 +572,6 @@
   </div>
 </section>
 
-<!-- ============== DASHBOARD ============== -->
-<section class="dashboard" id="dashboard">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Executive Dashboard</span>
-      <h2>The fleet, at a glance</h2>
-      <p>Six widgets covering distribution, brand mix, value trends, and circular economy performance across every device analyzed.</p>
-    </div>
-
-    <div class="dash-grid reveal-stagger">
-
-      <!-- Device Distribution -->
-      <div class="widget in-view">
-        <div class="widget-head">
-          <h4>Device Distribution</h4>
-          <span class="widget-tag mono">By category</span>
-        </div>
-        <div class="donut-wrap">
-          <svg viewBox="0 0 110 110" class="donut-svg" role="img" aria-label="Donut chart showing smartphones as the largest device category, followed by laptops, tablets, and other categories">
-            <circle cx="55" cy="55" r="44" class="donut-ring" stroke="var(--paper-100)"/>
-            <circle cx="55" cy="55" r="44" class="donut-ring" stroke="var(--green-600)" stroke-dasharray="124 152" stroke-dashoffset="0" transform="rotate(-90 55 55)"/>
-            <circle cx="55" cy="55" r="44" class="donut-ring" stroke="var(--emerald-400)" stroke-dasharray="69 207" stroke-dashoffset="-124" transform="rotate(-90 55 55)"/>
-            <circle cx="55" cy="55" r="44" class="donut-ring" stroke="var(--amber-500)" stroke-dasharray="41 235" stroke-dashoffset="-193" transform="rotate(-90 55 55)"/>
-            <circle cx="55" cy="55" r="44" class="donut-ring" stroke="var(--line-300)" stroke-dasharray="42 234" stroke-dashoffset="-234" transform="rotate(-90 55 55)"/>
-          </svg>
-          <div class="donut-legend">
-            <div class="donut-legend-item"><span class="left"><span class="swatch" style="background:var(--green-600)"></span>Smartphones</span><span class="right">45%</span></div>
-            <div class="donut-legend-item"><span class="left"><span class="swatch" style="background:var(--emerald-400)"></span>Laptops</span><span class="right">25%</span></div>
-            <div class="donut-legend-item"><span class="left"><span class="swatch" style="background:var(--amber-500)"></span>Tablets</span><span class="right">15%</span></div>
-            <div class="donut-legend-item"><span class="left"><span class="swatch" style="background:var(--line-300)"></span>Other</span><span class="right">15%</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Brand Analysis -->
-      <div class="widget in-view">
-        <div class="widget-head">
-          <h4>Brand Analysis</h4>
-          <span class="widget-tag mono">Top 5 by volume</span>
-        </div>
-        <div class="bar-list">
-          <div class="bar-row"><span class="label">Apple</span><span class="track"><span style="width:88%"></span></span><span class="val">88%</span></div>
-          <div class="bar-row"><span class="label">Samsung</span><span class="track"><span style="width:74%"></span></span><span class="val">74%</span></div>
-          <div class="bar-row"><span class="label">Dell</span><span class="track"><span style="width:52%"></span></span><span class="val">52%</span></div>
-          <div class="bar-row"><span class="label">HP</span><span class="track"><span style="width:41%"></span></span><span class="val">41%</span></div>
-          <div class="bar-row"><span class="label">Lenovo</span><span class="track"><span style="width:33%"></span></span><span class="val">33%</span></div>
-        </div>
-      </div>
-
-      <!-- Market Value Trends -->
-      <div class="widget in-view">
-        <div class="widget-head">
-          <h4>Market Value Trends</h4>
-          <span class="widget-tag mono">12-month avg.</span>
-        </div>
-        <svg viewBox="0 0 280 90" class="mini-chart-svg" preserveAspectRatio="none" role="img" aria-label="Mini line chart showing average market value trending gradually downward over twelve months">
-          <defs>
-            <linearGradient id="miniFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#16a34a" stop-opacity="0.4"/>
-              <stop offset="100%" stop-color="#16a34a" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <path class="mini-area" fill="url(#miniFill)" d="M0,30 L40,38 L80,34 L120,48 L160,44 L200,58 L240,54 L280,62 L280,90 L0,90 Z"/>
-          <path class="mini-line" d="M0,30 L40,38 L80,34 L120,48 L160,44 L200,58 L240,54 L280,62"/>
-        </svg>
-        <div class="widget-foot">
-          <span class="k">Current avg.</span>
-          <span class="v">₹21,300</span>
-        </div>
-      </div>
-
-      <!-- Condition Statistics -->
-      <div class="widget in-view">
-        <div class="widget-head">
-          <h4>Condition Statistics</h4>
-          <span class="widget-tag mono">All devices</span>
-        </div>
-        <div class="condition-strip">
-          <span style="width:31%; background: var(--green-500);"></span>
-          <span style="width:34%; background: var(--emerald-400);"></span>
-          <span style="width:24%; background: var(--amber-500);"></span>
-          <span style="width:11%; background: #ef4444;"></span>
-        </div>
-        <div class="condition-strip-legend">
-          <span class="legend-item"><span class="swatch" style="background:var(--green-500)"></span>Excellent 31%</span>
-          <span class="legend-item"><span class="swatch" style="background:var(--emerald-400)"></span>Good 34%</span>
-          <span class="legend-item"><span class="swatch" style="background:var(--amber-500)"></span>Fair 24%</span>
-          <span class="legend-item"><span class="swatch" style="background:#ef4444"></span>Poor 11%</span>
-        </div>
-      </div>
-
-      <!-- E-Waste Insights -->
-      <div class="widget in-view">
-        <div class="widget-head">
-          <h4>E-Waste Insights</h4>
-          <span class="widget-tag mono">This quarter</span>
-        </div>
-        <div class="widget-big-stat">1,248 <span class="unit">devices logged</span></div>
-        <div class="bar-list" style="margin-top: var(--space-2);">
-          <div class="bar-row"><span class="label">Refurbished</span><span class="track"><span style="width:58%"></span></span><span class="val">58%</span></div>
-          <div class="bar-row"><span class="label">Recycled</span><span class="track"><span style="width:31%"></span></span><span class="val">31%</span></div>
-          <div class="bar-row"><span class="label">Landfill risk</span><span class="track"><span style="width:11%; background: var(--amber-500);"></span></span><span class="val">11%</span></div>
-        </div>
-      </div>
-
-      <!-- Circular Economy Metrics -->
-      <div class="widget in-view">
-        <div class="widget-head">
-          <h4>Circular Economy Score</h4>
-          <span class="widget-tag mono">Composite index</span>
-        </div>
-        <div class="gauge-wrap">
-          <svg viewBox="0 0 160 100" class="gauge-svg" role="img" aria-label="Gauge showing circular economy score at 74 out of 100">
-            <path d="M20,90 A60,60 0 0,1 140,90" class="gauge-track"/>
-            <path d="M20,90 A60,60 0 0,1 140,90" class="gauge-fill" stroke-dasharray="139 188" pathLength="188"/>
-          </svg>
-          <div class="gauge-value">74</div>
-          <span class="gauge-caption">Out of 100</span>
-        </div>
-        <div class="widget-foot">
-          <span class="k">vs. last quarter</span>
-          <span class="v">+6 pts</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ============== RESULTS ============== -->
 <section class="results" id="results">
   <div class="container">
@@ -784,7 +655,7 @@
         </div>
         <div class="insight-item">
           <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 4V9M8 11.5V12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/></svg></span>
-          <p id="insight-condition">Condition analysis will appear here after device evaluation.</p>
+          <p id="insight-condition">Condition analysis will appear here after device evaluation."</p>
         </div>
         <div class="insight-item">
           <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13V8M8 13V3M13 13V6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
@@ -798,6 +669,210 @@
     </div>
   </div>
 </section>
+
+<!-- ============== DASHBOARD ============== -->
+
+<section class="dashboard" id="dashboard">
+  <div class="container">
+
+<div class="section-head reveal">
+  <span class="eyebrow">Prediction Dashboard</span>
+  <h2>Device Intelligence Overview</h2>
+  <p>
+    Visual summary of the AI valuation and sustainability analysis
+    for the selected device.
+  </p>
+</div>
+
+<div class="dash-grid reveal-stagger">
+
+  <!-- Predicted Market Value -->
+  <div class="widget">
+    <div class="widget-head">
+      <h4>Predicted Market Value</h4>
+      <span class="widget-tag mono">AI Model</span>
+    </div>
+
+    <div class="widget-big-stat" id="dash-market-value">
+      ₹0
+    </div>
+
+    <div class="widget-foot">
+      <span class="k">Algorithm</span>
+      <span class="v">Random Forest</span>
+    </div>
+  </div>
+
+  <!-- Current Resale Value -->
+  <div class="widget">
+    <div class="widget-head">
+      <h4>Current Resale Value</h4>
+      <span class="widget-tag mono">Adjusted</span>
+    </div>
+
+    <div class="widget-big-stat" id="dash-resale-value">
+      ₹0
+    </div>
+
+    <div class="widget-foot">
+      <span class="k">Age + Condition</span>
+      <span class="v">Applied</span>
+    </div>
+  </div>
+
+  <!-- Retention -->
+  <div class="widget">
+    <div class="widget-head">
+      <h4>Value Retention</h4>
+      <span class="widget-tag mono">Percentage</span>
+    </div>
+
+    <div class="widget-big-stat" id="dash-retention">
+      0%
+    </div>
+
+    <div class="bar-list">
+      <div class="bar-row">
+        <span class="label">Retention</span>
+        <span class="track">
+          <span id="dash-retention-bar" style="width:0%"></span>
+        </span>
+        <span class="val" id="dash-retention-value">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Health Score -->
+  <div class="widget">
+    <div class="widget-head">
+      <h4>Health Score</h4>
+      <span class="widget-tag mono">Health</span>
+    </div>
+
+    <div class="gauge-wrap">
+      <div class="gauge-value" id="dash-health-score">
+        --
+      </div>
+      <span class="gauge-caption">Out of 100</span>
+    </div>
+  </div>
+
+  <!-- Remaining Life -->
+  <div class="widget">
+    <div class="widget-head">
+      <h4>Remaining Life</h4>
+      <span class="widget-tag mono">Years</span>
+    </div>
+
+    <div class="widget-big-stat" id="dash-remaining-life">
+      --
+    </div>
+
+    <div class="widget-foot">
+      <span class="k">Estimated</span>
+      <span class="v">Usable Life</span>
+    </div>
+  </div>
+
+  <!-- Circular Economy Score -->
+  <div class="widget">
+    <div class="widget-head">
+      <h4>Circular Economy Score</h4>
+      <span class="widget-tag mono">Sustainability</span>
+    </div>
+
+    <div class="widget-big-stat" id="dash-circular-score">
+      --
+    </div>
+
+    <div class="widget-foot">
+      <span class="k">Potential</span>
+      <span class="v">Recovery</span>
+    </div>
+  </div>
+
+  <!-- Device Summary -->
+  <div class="widget">
+    <div class="widget-head">
+      <h4>Device Summary</h4>
+      <span class="widget-tag mono">Specs</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="k">Type</span>
+      <span class="v" id="dash-device-type">--</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="k">Brand</span>
+      <span class="v" id="dash-brand">--</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="k">OS</span>
+      <span class="v" id="dash-os">--</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="k">RAM</span>
+      <span class="v" id="dash-ram">--</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="k">Storage</span>
+      <span class="v" id="dash-storage">--</span>
+    </div>
+  </div>
+
+  <!-- Recommendation -->
+  <div class="widget">
+    <div class="widget-head">
+      <h4>Recommendation</h4>
+      <span class="widget-tag mono">Action</span>
+    </div>
+
+    <div class="widget-big-stat recommendation-stat"
+         id="dash-recommendation">
+      --
+    </div>
+
+    <p id="dash-recommendation-text">
+      Analyze a device to generate recommendations.
+    </p>
+  </div>
+
+  <!-- Model Information -->
+  <div class="widget">
+    <div class="widget-head">
+      <h4>Model Information</h4>
+      <span class="widget-tag mono">Performance</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="k">Algorithm</span>
+      <span class="v">Random Forest</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="k">R² Score</span>
+      <span class="v">0.85</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="k">Device Types</span>
+      <span class="v">3</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="k">Prediction</span>
+      <span class="v">Real-Time</span>
+    </div>
+  </div>
+
+</div>
+  </div>
+</section>
+
 
 <!-- ============== ABOUT / FOOTER ============== -->
 <footer class="site-footer" id="about">

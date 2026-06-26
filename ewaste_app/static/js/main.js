@@ -339,6 +339,53 @@ else {
      document.getElementById('insight-age').textContent =
   `Estimated remaining lifespan: ${remaining_life.toFixed(1)} years. Circular economy score: ${Math.round(circular_score)}/100.`;
 
+  /* ---------- DASHBOARD UPDATE ---------- */
+
+document.getElementById('dash-market-value').textContent =
+    formatCurrency(market_value);
+
+document.getElementById('dash-resale-value').textContent =
+    formatCurrency(resale_value);
+
+document.getElementById('dash-retention').textContent =
+    retained_pct + '%';
+
+document.getElementById('dash-retention-value').textContent =
+    retained_pct + '%';
+
+document.getElementById('dash-retention-bar').style.width =
+    retained_pct + '%';
+
+document.getElementById('dash-health-score').textContent =
+    Math.round(health_score);
+
+document.getElementById('dash-remaining-life').textContent =
+    remaining_life.toFixed(1) + ' yrs';
+
+document.getElementById('dash-circular-score').textContent =
+    Math.round(circular_score);
+
+document.getElementById('dash-device-type').textContent =
+    inputs.device_type;
+
+document.getElementById('dash-brand').textContent =
+    inputs.brand;
+
+document.getElementById('dash-os').textContent =
+    inputs.os;
+
+document.getElementById('dash-ram').textContent =
+    inputs.ram + ' GB';
+
+document.getElementById('dash-storage').textContent =
+    inputs.storage + ' GB';
+
+document.getElementById('dash-recommendation').textContent =
+    recommendation;
+
+document.getElementById('dash-recommendation-text').textContent =
+    `Recommended action based on device health, resale value, and sustainability score.`;
+
       document.getElementById('results')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
