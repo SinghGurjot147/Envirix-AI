@@ -470,105 +470,241 @@
     </div>
 
     <div class="forecast-stats reveal-stagger">
-      <div class="stat-card">
-        <span class="stat-label mono">Avg. device lifespan</span>
-        <div class="stat-value">2.7 <span class="unit">years</span></div>
-        <span class="stat-trend down">↓ 4% vs last cycle</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label mono">Recoverable value</span>
-        <div class="stat-value">61<span class="unit">%</span></div>
-        <span class="stat-trend up">↑ 3pt with refurb grading</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label mono">Top disposal category</span>
-        <div class="stat-value mono" style="font-size: var(--text-lg);">Smartphones</div>
-        <span class="stat-trend warn">38% of total volume</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label mono">Forecast horizon</span>
-        <div class="stat-value">36 <span class="unit">months</span></div>
-        <span class="stat-trend up">Updated quarterly</span>
-      </div>
+
+    <!-- Card 1 -->
+    <div class="stat-card">
+        <span class="stat-label mono">
+            Projected E-Waste (2030)
+        </span>
+
+        <div class="stat-value">
+            <span id="generatedWaste">82</span>
+            <span class="unit">Mt</span>
+        </div>
+
+        <span class="stat-trend up"
+              id="generatedTrend">
+            ↑ +20 Mt since 2022
+        </span>
     </div>
+
+    <!-- Card 2 -->
+    <div class="stat-card">
+        <span class="stat-label mono">
+            Recycled E-Waste
+        </span>
+
+        <div class="stat-value">
+            <span id="recycledWaste">16</span>
+            <span class="unit">Mt</span>
+        </div>
+
+        <span class="stat-trend up"
+              id="scenarioName">
+            Business as Usual
+        </span>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="stat-card">
+        <span class="stat-label mono">
+            Recycling Rate
+        </span>
+
+        <div class="stat-value">
+            <span id="recyclingRate">20</span>
+            <span class="unit">%</span>
+        </div>
+
+        <span class="stat-trend warn">
+            Forecast Target
+        </span>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="stat-card">
+        <span class="stat-label mono">
+            Waste Not Recycled
+        </span>
+
+        <div class="stat-value">
+            <span id="unrecycledWaste">66</span>
+            <span class="unit">Mt</span>
+        </div>
+
+        <span class="stat-trend down">
+            Environmental Impact
+        </span>
+    </div>
+    <div class="stat-card">
+
+    <span class="stat-label mono">
+        Forecast Scenario
+    </span>
+
+    <div class="scenario-buttons">
+
+        <button class="scenario-btn active"
+                data-value="Business as Usual">
+            Business
+        </button>
+
+        <button class="scenario-btn"
+                data-value="Progressive Forecast">
+            Progressive
+        </button>
+
+        <button class="scenario-btn"
+                data-value="Ambitious Forecast">
+            Ambitious
+        </button>
+
+        <button class="scenario-btn"
+                data-value="Aspirational Forecast">
+            Aspirational
+        </button>
+
+    </div>
+
+</div>
+</div>
 
     <div class="forecast-main">
-      <div class="chart-panel reveal">
+
+    <!-- LEFT SIDE -->
+    <div class="chart-panel reveal">
+
         <div class="chart-panel-head">
-          <div>
-            <h3>Projected device disposal volume</h3>
-            <p>Index, normalized to current quarter = 100</p>
-          </div>
-          <div class="chart-legend">
-            <span class="legend-item"><span class="swatch" style="background:var(--ink-950)"></span>Observed</span>
-            <span class="legend-item"><span class="swatch" style="background:var(--green-600)"></span>Projected</span>
-          </div>
+
+            <div>
+                <h3>Projected Device Disposal Volume</h3>
+                <p>Global E-Waste Generation & Recycling (Million Tonnes)</p>
+            </div>
+
+            <div class="chart-legend">
+                <span class="legend-item">
+                    <span class="swatch" style="background:var(--ink-950)"></span>
+                    Generated
+                </span>
+
+                <span class="legend-item">
+                    <span class="swatch" style="background:var(--green-600)"></span>
+                    Recycled
+                </span>
+            </div>
+
         </div>
 
-        <svg viewBox="0 0 640 280" class="forecast-chart-svg" preserveAspectRatio="none" role="img" aria-label="Line chart of observed disposal volume rising gradually then a projected trend continuing upward over the next three years">
-          <defs>
-            <linearGradient id="forecastFillObs" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0a0f0d" stop-opacity="0.5"/>
-              <stop offset="100%" stop-color="#0a0f0d" stop-opacity="0"/>
-            </linearGradient>
-            <linearGradient id="forecastFillProj" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#16a34a" stop-opacity="0.35"/>
-              <stop offset="100%" stop-color="#16a34a" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-
-          <line x1="0" y1="40" x2="640" y2="40" class="forecast-grid"/>
-          <line x1="0" y1="110" x2="640" y2="110" class="forecast-grid"/>
-          <line x1="0" y1="180" x2="640" y2="180" class="forecast-grid"/>
-          <line x1="0" y1="250" x2="640" y2="250" class="forecast-grid"/>
-
-          <path class="forecast-area" fill="url(#forecastFillObs)" d="M0,230 L60,222 L120,205 L180,195 L240,178 L300,165 L360,150 L360,250 L0,250 Z"/>
-          <path class="forecast-line-actual" d="M0,230 L60,222 L120,205 L180,195 L240,178 L300,165 L360,150"/>
-
-          <path class="forecast-area" fill="url(#forecastFillProj)" d="M360,150 L420,138 L480,118 L540,100 L600,78 L640,65 L640,250 L360,250 Z"/>
-          <path class="forecast-line-projected" d="M360,150 L420,138 L480,118 L540,100 L600,78 L640,65"/>
-
-          <circle cx="360" cy="150" r="4.5" class="forecast-point" stroke="var(--ink-950)"/>
-
-          <text x="2" y="270" class="forecast-axis-label">Now − 18mo</text>
-          <text x="290" y="270" class="forecast-axis-label">Today</text>
-          <text x="580" y="270" class="forecast-axis-label">+18mo</text>
-        </svg>
-      </div>
-
-      <div class="material-panel reveal">
-        <div class="chart-panel" style="padding: var(--space-6);">
-          <div class="chart-panel-head" style="margin-bottom: var(--space-5);">
-            <div><h3>Material composition</h3><p>Share of recoverable mass</p></div>
-          </div>
-          <div class="material-row in-view">
-            <span class="name">Plastics</span>
-            <span class="track"><span style="width:42%; background: var(--gray-400);"></span></span>
-            <span class="pct">42%</span>
-          </div>
-          <div class="material-row in-view">
-            <span class="name">Steel / Alloy</span>
-            <span class="track"><span style="width:28%; background: var(--green-600);"></span></span>
-            <span class="pct">28%</span>
-          </div>
-          <div class="material-row in-view">
-            <span class="name">Glass</span>
-            <span class="track"><span style="width:15%; background: var(--emerald-400);"></span></span>
-            <span class="pct">15%</span>
-          </div>
-          <div class="material-row in-view">
-            <span class="name">Rare earth</span>
-            <span class="track"><span style="width:7%; background: var(--amber-500);"></span></span>
-            <span class="pct">7%</span>
-          </div>
-          <div class="material-row in-view">
-            <span class="name">Other</span>
-            <span class="track"><span style="width:8%; background: var(--line-300);"></span></span>
-            <span class="pct">8%</span>
-          </div>
+        <div class="forecast-chart-container">
+            <canvas id="forecastChart"></canvas>
         </div>
-      </div>
+
     </div>
+
+
+    <!-- RIGHT SIDE -->
+    <div class="forecast-side">
+
+        <!-- Material Composition -->
+        <div class="material-panel reveal">
+
+            <div class="chart-panel" style="padding:var(--space-6);">
+
+                <div class="chart-panel-head" style="margin-bottom:var(--space-5);">
+                    <div>
+                        <h3>Material Composition</h3>
+                        <p>Projected recoverable materials (2030)</p>
+                    </div>
+                </div>
+
+                <div class="material-row in-view">
+                    <span class="name">Metals</span>
+                    <span class="track">
+                        <span class="material-metals"></span>
+                    </span>
+                    <span class="pct">31 Mt</span>
+                </div>
+
+                <div class="material-row in-view">
+                    <span class="name">Plastics</span>
+                    <span class="track">
+                        <span class="material-plastics"></span>
+                    </span>
+                    <span class="pct">17 Mt</span>
+                </div>
+
+                <div class="material-row in-view">
+                    <span class="name">Other Materials</span>
+                    <span class="track">
+                        <span class="material-other"></span>
+                    </span>
+                    <span class="pct">14 Mt</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Recoverable Metal Value -->
+        <div class="metal-value-panel reveal">
+
+            <div class="chart-panel">
+
+                <div class="chart-panel-head">
+                    <div>
+                        <h3>Recoverable Metal Value</h3>
+                        <p>Estimated embedded value (2022)</p>
+                    </div>
+                </div>
+
+                <div class="metal-row">
+                    <span class="metal-name">Copper</span>
+                    <span class="metal-track">
+                        <span class="metal-copper"></span>
+                    </span>
+                    <span class="metal-value">$19B</span>
+                </div>
+
+                <div class="metal-row">
+                    <span class="metal-name">Iron</span>
+                    <span class="metal-track">
+                        <span class="metal-iron"></span>
+                    </span>
+                    <span class="metal-value">$16B</span>
+                </div>
+
+                <div class="metal-row">
+                    <span class="metal-name">Gold</span>
+                    <span class="metal-track">
+                        <span class="metal-gold"></span>
+                    </span>
+                    <span class="metal-value">$15B</span>
+                </div>
+
+                <div class="metal-row">
+                    <span class="metal-name">Nickel</span>
+                    <span class="metal-track">
+                        <span class="metal-nickel"></span>
+                    </span>
+                    <span class="metal-value">$14B</span>
+                </div>
+
+                <div class="metal-row">
+                    <span class="metal-name">Aluminium</span>
+                    <span class="metal-track">
+                        <span class="metal-aluminium"></span>
+                    </span>
+                    <span class="metal-value">$11B</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
   </div>
 </section>
 
@@ -958,6 +1094,7 @@
 
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

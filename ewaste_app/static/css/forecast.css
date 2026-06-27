@@ -6,24 +6,31 @@
   padding: var(--space-16) 0;
   background: var(--paper-0);
   border-top: 1px solid var(--line-200);
+  overflow:visible;
 }
 
-.forecast-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4);
-  margin-bottom: var(--space-8);
+.forecast-stats{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:var(--space-4);
+  margin-bottom:var(--space-8);
+
+  overflow:visible;
 }
 @media (max-width: 900px) {
   .forecast-stats { grid-template-columns: repeat(2, 1fr); }
 }
 
-.stat-card {
-  border: 1px solid var(--line-200);
-  border-radius: var(--radius-md);
-  padding: var(--space-5);
-  background: var(--paper-50);
-  transition: border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+.stat-card{
+  border:1px solid var(--line-200);
+  border-radius:var(--radius-md);
+  padding:var(--space-5);
+  background:var(--paper-50);
+  transition:border-color var(--dur-base) var(--ease-out),
+             transform var(--dur-base) var(--ease-out);
+
+  position:relative;
+  overflow:visible;
 }
 .stat-card:hover {
   border-color: var(--green-600);
@@ -120,7 +127,23 @@
   border-radius: 2px;
 }
 
-.forecast-chart-svg { width: 100%; height: 280px; }
+.forecast-chart-container{
+
+    width:100%;
+
+    height:420px;
+
+    position:relative;
+
+}
+
+#forecastChart{
+
+    width:100% !important;
+
+    height:100% !important;
+
+}
 .forecast-area { opacity: 0.16; }
 .forecast-line-actual { stroke: var(--ink-950); stroke-width: 2.5; fill: none; }
 .forecast-line-projected { stroke: var(--green-600); stroke-width: 2.5; fill: none; stroke-dasharray: 6 5; }
@@ -169,4 +192,314 @@
   font-weight: 600;
   color: var(--ink-950);
   text-align: right;
+}
+
+/* ============================================
+   CUSTOM FORECAST DROPDOWN
+============================================ */
+
+.forecast-dropdown{
+    position:relative;
+    margin-top:18px;
+}
+
+.forecast-dropdown-btn{
+
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:transparent;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-family:var(--font-mono);
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:var(--ink-950);
+
+    padding:0;
+
+}
+
+.forecast-dropdown-btn:hover{
+
+    color:var(--green-600);
+
+}
+
+.dropdown-arrow{
+
+    transition:.3s;
+
+    font-size:.8rem;
+
+}
+
+.forecast-dropdown.open .dropdown-arrow{
+
+    transform:rotate(180deg);
+
+}
+
+.forecast-dropdown-menu{
+
+    position:absolute;
+
+    top:calc(100% + 10px);
+
+    left:0;
+
+    width:100%;
+
+    background:white;
+
+    border:1px solid var(--line-200);
+
+    border-radius:12px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    display:none;
+
+    z-index:50;
+
+}
+
+.forecast-dropdown.open
+.forecast-dropdown-menu{
+    min-width:260px;
+    width:max-content;
+    min-width:100%;
+    display:block;
+}
+
+.forecast-option{
+
+    padding:14px 16px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    font-size:.9rem;
+
+    font-family:var(--font-mono);
+
+}
+
+.forecast-option:hover{
+
+    background:#f4f7f6;
+
+    color:var(--green-600);
+
+}
+
+.forecast-option.active{
+
+    background:#e8f8ee;
+
+    color:var(--green-600);
+
+    font-weight:700;
+
+}
+
+/* ============================================
+   FORECAST SCENARIO BUTTONS
+============================================ */
+
+.scenario-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:16px;
+}
+
+.scenario-btn{
+
+    padding:8px 14px;
+
+    border:1px solid var(--line-300);
+
+    border-radius:999px;
+
+    background:var(--paper-0);
+
+    color:var(--gray-700);
+
+    font-family:var(--font-mono);
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+
+}
+
+.scenario-btn:hover{
+
+    border-color:var(--green-600);
+
+    color:var(--green-600);
+
+    transform:translateY(-2px);
+
+}
+
+.scenario-btn.active{
+
+    background:var(--green-600);
+
+    color:#fff;
+
+    border-color:var(--green-600);
+
+    box-shadow:0 6px 18px rgba(22,163,74,.25);
+
+}
+
+.scenario-btn:focus{
+
+    outline:none;
+
+}
+.material-metals{
+    width:100%;
+    background:#16a34a;
+}
+
+.material-plastics{
+    width:55%;
+    background:#94a3b8;
+}
+
+.material-other{
+    width:45%;
+    background:#d1d5db;
+}
+/*==============================
+ Recoverable Metal Value
+==============================*/
+
+.metal-value-panel{
+
+    margin-top:24px;
+
+}
+
+.metal-row{
+
+    display:grid;
+
+    grid-template-columns:80px 1fr 55px;
+
+    gap:12px;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.metal-name{
+
+    font-size:.9rem;
+
+    font-weight:500;
+
+}
+
+.metal-track{
+
+    height:8px;
+
+    background:#edf1ef;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.metal-track span{
+
+    display:block;
+
+    height:100%;
+
+    border-radius:999px;
+
+}
+
+.metal-value{
+
+    text-align:right;
+
+    font-family:var(--font-mono);
+
+    font-weight:600;
+
+}
+
+/* widths */
+
+.metal-copper{
+
+    width:100%;
+
+    background:#16a34a;
+
+}
+
+.metal-iron{
+
+    width:84%;
+
+    background:#22c55e;
+
+}
+
+.metal-gold{
+
+    width:79%;
+
+    background:#eab308;
+
+}
+
+.metal-nickel{
+
+    width:74%;
+
+    background:#38bdf8;
+
+}
+
+.metal-aluminium{
+
+    width:58%;
+
+    background:#94a3b8;
+
+}
+.forecast-side{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
 }

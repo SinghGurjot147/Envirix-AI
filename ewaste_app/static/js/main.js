@@ -508,3 +508,188 @@ currentRequiredFields.forEach(f => {
   });
 
 });
+
+/* ============================================
+   FORECAST DASHBOARD
+============================================ */
+
+const forecastData = {
+
+    "Business as Usual": {
+        generated: 82,
+        recycled: 16,
+        rate: 20
+    },
+
+    "Progressive Forecast": {
+        generated: 82,
+        recycled: 31,
+        rate: 38
+    },
+
+    "Ambitious Forecast": {
+        generated: 82,
+        recycled: 37,
+        rate: 44
+    },
+
+    "Aspirational Forecast": {
+        generated: 82,
+        recycled: 54,
+        rate: 60
+    }
+
+};
+
+/* ============================================
+   FORECAST CHART
+============================================ */
+
+const chartCanvas = document.getElementById("forecastChart");
+
+let forecastChart = null;
+
+function drawForecastChart(recycledValue){
+
+    if(!chartCanvas) return;
+
+    if(forecastChart){
+
+        forecastChart.destroy();
+
+    }
+
+    forecastChart = new Chart(chartCanvas,{
+
+        type:"line",
+
+        data:{
+
+            labels:["2010","2022","2030"],
+
+            datasets:[
+
+                {
+
+                    label:"Generated",
+
+                    data:[34,62,82],
+
+                    borderColor:"#111827",
+
+                    backgroundColor:"#111827",
+
+                    borderWidth:3,
+
+                    pointRadius:5,
+                    hoverRadius:6,
+                    tension:.35
+
+                },
+
+                {
+
+                    label:"Recycled",
+
+                    data:[8,13.8,recycledValue],
+
+                    borderColor:"#16a34a",
+
+                    backgroundColor:"#16a34a",
+
+                    borderWidth:3,
+
+                    pointRadius:5,
+                    hoverRadius:6,
+                    tension:.35
+
+                }
+
+            ]
+
+        },
+
+        options:{
+
+            responsive:true,
+
+            maintainAspectRatio:false,
+
+            plugins:{
+
+    legend:{
+
+        display:false
+
+    }
+
+},
+
+            scales:{
+
+                y:{
+
+                    beginAtZero:true,
+
+                    title:{
+
+                        display:true,
+
+                        text:"Million Tonnes"
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    });
+
+}
+
+const scenarioButtons = document.querySelectorAll(".scenario-btn");
+
+let currentScenario = "Business as Usual";
+
+function updateForecastCards() {
+
+    const data = forecastData[currentScenario];
+
+    document.getElementById("generatedWaste").textContent =
+        data.generated;
+
+    document.getElementById("recycledWaste").textContent =
+        data.recycled;
+
+    document.getElementById("recyclingRate").textContent =
+        data.rate;
+
+    document.getElementById("unrecycledWaste").textContent =
+        data.generated - data.recycled;
+
+    document.getElementById("scenarioName").textContent =
+        currentScenario;
+        drawForecastChart(data.recycled);
+}
+
+scenarioButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        scenarioButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        currentScenario = button.dataset.value;
+
+        updateForecastCards();
+
+    });
+
+});
+
+updateForecastCards();
