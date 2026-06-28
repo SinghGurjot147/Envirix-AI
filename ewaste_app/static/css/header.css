@@ -193,3 +193,48 @@
   align-self: flex-end;
   width: 36px; height: 36px;
 }
+
+/* ==========================================================
+   ECOBOT NAV BUTTON
+========================================================== */
+
+.nav-chatbot-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    height:38px;
+
+    padding:0 16px;
+
+    border:none;
+    border-radius:999px;
+
+    background:linear-gradient(135deg,#18c896,#0f9d77);
+
+    color:#fff;
+
+    font-family:var(--font-body);
+    font-size:var(--text-sm);
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+}
+
+.nav-chatbot-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(24,200,150,.30);
+}
+
+.nav-chatbot-btn svg{
+    flex-shrink:0;
+    pointer-events:none;
+}
+
+.nav-chatbot-btn span{
+    pointer-events:none;
+}

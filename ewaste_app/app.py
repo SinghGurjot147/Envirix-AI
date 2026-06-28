@@ -3,8 +3,14 @@ import pandas as pd
 import joblib
 import os
 from datetime import datetime
+from gemini_client import generate_ecobot_response
+from system_prompt import ECOBOT_SYSTEM_PROMPT
 
 app = Flask(__name__)
+# -----------------------------
+# EcoBot Session Memory
+# -----------------------------
+chat_history = []
 
 # ---------------------------------------------------------------------------
 # Load model + encoders once at startup
@@ -235,6 +241,53 @@ def predict():
         },
     })
 
+# ---------------------------------------------------------------------------
+# EcoBot Chat Route
+# ---------------------------------------------------------------------------
+@app.route("/chat", methods=["POST"])
+def chat():
+
+    global chat_history
+
+    data = request.get_json(silent=True) or {}
+
+    user_message = data.get("message", "").strip()
+
+    if not user_message:
+        return jsonify({
+            "response": "Please enter a message."
+        }), 400
+
+    try:
+
+        bot_reply = generate_ecobot_response(
+            ECOBOT_SYSTEM_PROMPT,
+            chat_history,
+            user_message
+        )
+
+        chat_history.append({
+            "role": "user",
+            "text": user_message
+        })
+
+        chat_history.append({
+            "role": "bot",
+            "text": bot_reply
+        })
+
+        if len(chat_history) > 20:
+            chat_history = chat_history[-20:]
+
+        return jsonify({
+            "response": bot_reply
+        })
+
+    except Exception as e:
+
+        return jsonify({
+            "response": f"EcoBot error: {str(e)}"
+        }), 500
 
 if __name__ == "__main__":
     app.run(debug=True)

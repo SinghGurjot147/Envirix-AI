@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
 </head>
 <body>
 
@@ -53,7 +54,24 @@
 
     <div class="nav-right">
       <span class="nav-badge"><span class="dot"></span>AI Powered</span>
-      <span class="nav-badge badge-secondary">Sustainability Certified</span>
+
+      <button
+    id="nav-chatbot-btn"
+    class="nav-chatbot-btn"
+    type="button"
+    aria-label="Open EcoBot">
+
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 3C7.03 3 3 6.81 3 11.5C3 14.02 4.18 16.29 6.09 17.82L5.2 21L8.59 19.3C9.67 19.62 10.82 19.8 12 19.8C16.97 19.8 21 15.99 21 11.3C21 6.81 16.97 3 12 3Z"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+    </svg>
+
+    <span>Ask EcoBot</span>
+
+</button>
       <button class="nav-toggle" aria-label="Open menu">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       </button>
@@ -90,7 +108,7 @@
           Analyze Device
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#dashboard" class="btn btn-ghost-light">Explore Dashboard</a>
+        <a href="#forecast" class="btn btn-ghost-light">Explore Forecasting</a>
       </div>
 
       <div class="hero-meta">
@@ -1094,7 +1112,178 @@
 
 </main>
 
+
+<!-- Chat Panel -->
+<section
+  id="chatbot-window"
+  class="chatbot-window"
+  role="dialog"
+  aria-modal="false"
+  aria-labelledby="chatbot-title"
+  aria-hidden="true"
+  hidden
+>
+  <!-- Header -->
+  <header class="chatbot-header">
+    <div class="chatbot-header-info">
+      <span class="chatbot-avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3C7.03 3 3 6.58 3 11c0 2.08.93 3.97 2.46 5.4-.16 1.13-.62 2.4-1.36 3.4a.5.5 0 0 0 .53.79c1.7-.43 3.13-1.18 4.06-1.82A10.6 10.6 0 0 0 12 19c4.97 0 9-3.58 9-8s-4.03-8-9-8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M9 11.2c1 1.6 4 1.6 5-.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="chatbot-header-text">
+        <h2 id="chatbot-title" class="chatbot-name">EcoBot</h2>
+        <p class="chatbot-subtitle">
+          <span class="chatbot-status-dot" aria-hidden="true"></span>
+          AI E-Waste Assistant
+        </p>
+      </div>
+    </div>
+    <div class="chatbot-header-actions">
+
+  <!-- Clear -->
+  <button
+    id="chatbot-clear-btn"
+    class="chatbot-icon-btn"
+    type="button"
+    aria-label="Clear chat"
+    title="Clear chat">
+
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none">
+      <path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m1 0-.7 12.1A2 2 0 0 1 13.3 21h-2.6a2 2 0 0 1-2-1.9L8 7"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"/>
+    </svg>
+
+  </button>
+
+  <!-- Minimize -->
+  <button
+    id="chatbot-minimize-btn"
+    class="chatbot-icon-btn"
+    type="button"
+    aria-label="Minimize"
+    title="Minimize">
+
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none">
+      <path d="M5 12h14"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"/>
+    </svg>
+
+  </button>
+
+  <!-- Maximize -->
+  <button
+    id="chatbot-maximize-btn"
+    class="chatbot-icon-btn"
+    type="button"
+    aria-label="Maximize"
+    title="Maximize">
+
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none">
+      <rect
+        x="5"
+        y="5"
+        width="14"
+        height="14"
+        rx="2"
+        stroke="currentColor"
+        stroke-width="1.6"/>
+    </svg>
+
+  </button>
+
+  <!-- Close -->
+  <button
+    id="chatbot-close-btn"
+    class="chatbot-icon-btn"
+    type="button"
+    aria-label="Close"
+    title="Close">
+
+    <svg viewBox="0 0 24 24" width="17" height="17" fill="none">
+      <path
+        d="M6 6l12 12M18 6L6 18"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"/>
+    </svg>
+
+  </button>
+
+</div>
+  </header>
+
+  <!-- Scrollable message history -->
+  <div
+    id="chatbot-messages"
+    class="chatbot-messages"
+    role="log"
+    aria-live="polite"
+    aria-label="Chat conversation"
+  >
+    <!-- Messages are injected here by chatbot.js -->
+  </div>
+
+  <!-- Suggested question chips -->
+  <div class="chatbot-suggestions-wrap">
+    <div id="chatbot-suggestions" class="chatbot-suggestions" role="group" aria-label="Suggested questions">
+      <button class="chatbot-chip" type="button" data-question="Where should I recycle my laptop?">Where should I recycle my laptop?</button>
+      <button class="chatbot-chip" type="button" data-question="Can batteries go into household trash?">Can batteries go into household trash?</button>
+      <button class="chatbot-chip" type="button" data-question="Should I repair or recycle my phone?">Should I repair or recycle my phone?</button>
+      <button class="chatbot-chip" type="button" data-question="How do I erase my personal data?">How do I erase my personal data?</button>
+      <button class="chatbot-chip" type="button" data-question="Why is e-waste harmful?">Why is e-waste harmful?</button>
+      <button class="chatbot-chip" type="button" data-question="What materials are recovered?">What materials are recovered?</button>
+      <button class="chatbot-chip" type="button" data-question="What is circular economy?">What is circular economy?</button>
+      <button class="chatbot-chip" type="button" data-question="How can I extend device lifespan?">How can I extend device lifespan?</button>
+    </div>
+  </div>
+
+  <!-- Typing indicator (hidden by default, toggled by JS) -->
+  <div id="chatbot-typing" class="chatbot-typing" hidden aria-hidden="true">
+    <span class="chatbot-avatar chatbot-avatar-sm" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3C7.03 3 3 6.58 3 11c0 2.08.93 3.97 2.46 5.4-.16 1.13-.62 2.4-1.36 3.4a.5.5 0 0 0 .53.79c1.7-.43 3.13-1.18 4.06-1.82A10.6 10.6 0 0 0 12 19c4.97 0 9-3.58 9-8s-4.03-8-9-8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span class="chatbot-typing-dots">
+      <span class="chatbot-dot"></span>
+      <span class="chatbot-dot"></span>
+      <span class="chatbot-dot"></span>
+    </span>
+  </div>
+
+  <!-- Input area -->
+  <form id="chatbot-form" class="chatbot-input-area" autocomplete="off">
+    <label for="chatbot-input" class="chatbot-sr-only">Type your e-waste question</label>
+    <textarea
+      id="chatbot-input"
+      class="chatbot-input"
+      rows="1"
+      placeholder="Ask about e-waste, recycling, or sustainability…"
+      aria-label="Type your e-waste question"
+    ></textarea>
+    <button
+      id="chatbot-send-btn"
+      class="chatbot-send-btn"
+      type="submit"
+      aria-label="Send message"
+    >
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 12 19.5 4.6c.7-.34 1.4.37 1.07 1.06L13 20.5a.7.7 0 0 1-1.27-.04L9 13l-6.46-2.73A.7.7 0 0 1 4 12Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="currentColor" fill-opacity="0.08"/>
+      </svg>
+    </button>
+  </form>
+</section>
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/chatbot.js') }}" defer></script>
 </body>
 </html>
