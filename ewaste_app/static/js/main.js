@@ -472,7 +472,7 @@ currentRequiredFields.forEach(f => {
       const reader = new FileReader();
       reader.onload = (e) => {
         previewImg.src = e.target.result;
-        dropzone.classList.add('has-image', 'is-scanning');
+        dropzone.classList.add('has-image');
         if (processingLabel) processingLabel.textContent = 'Reading device signature…';
         setTimeout(() => {
           dropzone.classList.remove('is-scanning');

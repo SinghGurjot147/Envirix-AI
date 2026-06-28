@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/photo_analysis_results.css') }}">
 </head>
 <body>
 
@@ -477,6 +478,36 @@
   </div>
 </section>
 
+<section
+    id="photo-results"
+    class="photo-results"
+    hidden>
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <span class="eyebrow">
+                AI Photo Analysis
+            </span>
+
+            <h2>
+                Device Condition Report
+            </h2>
+
+            <p>
+                AI-powered visual inspection of your uploaded device.
+            </p>
+
+        </div>
+
+        <div id="photo-results-container">
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- ============== FORECASTING ============== -->
 <section class="forecast" id="forecast">
@@ -1284,6 +1315,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/photo_analysis.js') }}"></script>
 <script src="{{ url_for('static', filename='js/chatbot.js') }}" defer></script>
 </body>
 </html>

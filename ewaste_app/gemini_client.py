@@ -21,20 +21,33 @@ call where indicated below, once you have:
 """
 
 import os
+import time
 import google.generativeai as genai
 
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+API_KEYS = [
+    os.getenv("GEMINI_API_KEY_1"),
+    os.getenv("GEMINI_API_KEY_2"),
+    os.getenv("GEMINI_API_KEY_3"),
+    os.getenv("GEMINI_API_KEY_4"),
+    os.getenv("GEMINI_API_KEY_5"),
+]
 
-if not GEMINI_API_KEY:
-    raise ValueError(
-        "GEMINI_API_KEY environment variable not found."
+API_KEYS = [k for k in API_KEYS if k]
+
+if not API_KEYS:
+    raise ValueError("No Gemini API keys found.")
+
+current_key_index = 0
+
+
+def get_model():
+    global current_key_index
+
+    genai.configure(api_key=API_KEYS[current_key_index])
+
+    return genai.GenerativeModel(
+        model_name="gemini-2.5-flash"
     )
-
-genai.configure(api_key=GEMINI_API_KEY)
-
-model = genai.GenerativeModel(
-    model_name="gemini-2.5-flash",
-)
 
 
 def _build_prompt(system_prompt: str, history: list, user_message: str) -> str:
@@ -64,27 +77,55 @@ def _build_prompt(system_prompt: str, history: list, user_message: str) -> str:
 
 def generate_ecobot_response(system_prompt, history, user_message):
 
+    global current_key_index
+
     prompt = _build_prompt(
         system_prompt,
         history,
         user_message
     )
 
-    try:
+    last_error = None
 
-        response = model.generate_content(
-            prompt,
-            generation_config={
-                "temperature": 0.4,
-                "top_p": 0.9,
-                "max_output_tokens": 500,
-            }
-        )
+    for _ in range(len(API_KEYS)):
 
-        if response.text:
-            return response.text.strip()
+        model = get_model()
 
-        return "I'm sorry, I couldn't generate a response."
+        try:
 
-    except Exception as e:
-        return f"Error contacting Gemini API: {str(e)}"
+            response = model.generate_content(
+                prompt,
+                generation_config={
+                    "temperature": 0.4,
+                    "top_p": 0.9,
+                    "max_output_tokens": 500,
+                }
+            )
+
+            if response.text:
+                return response.text.strip()
+
+            return "I'm sorry, I couldn't generate a response."
+
+        except Exception as e:
+
+            last_error = e
+            error = str(e).lower()
+
+            # If quota/rate limit is reached, switch to the next key
+            if (
+                "429" in error
+                or "quota" in error
+                or "rate" in error
+                or "resource_exhausted" in error
+            ):
+
+                current_key_index = (current_key_index + 1) % len(API_KEYS)
+                print(f"[Gemini] Switched to API Key {current_key_index + 1}")
+
+                continue
+
+            # For any other error, stop immediately
+            return f"Error contacting Gemini API: {str(e)}"
+
+    return f"All Gemini API keys exhausted.\n{last_error}"

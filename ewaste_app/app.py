@@ -5,8 +5,11 @@ import os
 from datetime import datetime
 from gemini_client import generate_ecobot_response
 from system_prompt import ECOBOT_SYSTEM_PROMPT
+from photo_analysis_routes import photo_analysis_bp
 
 app = Flask(__name__)
+
+app.register_blueprint(photo_analysis_bp)
 # -----------------------------
 # EcoBot Session Memory
 # -----------------------------
