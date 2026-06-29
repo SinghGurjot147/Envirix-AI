@@ -393,6 +393,22 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ----------------------------------------------------------
      Initialize
   ---------------------------------------------------------- */
+ const footerChatbotLink = document.getElementById("footer-chatbot-link");
+
+if (footerChatbotLink) {
+    footerChatbotLink.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        if (!isOpen) {
+            openPanel();
+        } else if (isMinimized) {
+            toggleMinimize();
+        }
+
+        inputEl.focus();
+    });
+}
+ 
   restoreSession();
 
 

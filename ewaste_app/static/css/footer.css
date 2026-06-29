@@ -187,3 +187,59 @@
 
 .footer-bottom-links { display: flex; gap: var(--space-5); }
 .footer-bottom-links a:hover { color: var(--green-400); }
+
+/* ==========================================================
+   PROJECT STATISTICS
+========================================================== */
+
+.project-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1.2rem;
+    margin:3rem 0 2.5rem;
+}
+
+.project-stat{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:1.5rem 1rem;
+    text-align:center;
+    transition:.3s ease;
+}
+
+.project-stat:hover{
+    transform:translateY(-5px);
+    border-color:var(--accent);
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.project-stat h3{
+    margin:0;
+    font-size:2rem;
+    color:var(--accent);
+    font-weight:700;
+}
+
+.project-stat span{
+    display:block;
+    margin-top:.45rem;
+    font-size:.92rem;
+    color:var(--text-secondary);
+}
+
+@media (max-width:768px){
+
+    .project-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media (max-width:500px){
+
+    .project-stats{
+        grid-template-columns:1fr;
+    }
+
+}

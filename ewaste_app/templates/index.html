@@ -39,8 +39,8 @@
         </svg>
       </span>
       <span class="nav-brand-text">
-        E-Waste Analyzer
-        <small>Device Intelligence</small>
+        EcoVision AI
+        <small>Smart Analytics</small>
       </span>
     </a>
 
@@ -49,7 +49,7 @@
       <li><a href="#analyze">Analyze Device</a></li>
       <li><a href="#photo">Photo Analysis</a></li>
       <li><a href="#forecast">Forecasting</a></li>
-      <li><a href="#dashboard">Dashboards</a></li>
+      <li><a href="#dashboard">Dashboard</a></li>
       <li><a href="#about">About Project</a></li>
     </ul>
 
@@ -89,7 +89,7 @@
   <a href="#analyze">Analyze Device</a>
   <a href="#photo">Photo Analysis</a>
   <a href="#forecast">Forecasting</a>
-  <a href="#dashboard">Dashboards</a>
+  <a href="#dashboard">Dashboard</a>
   <a href="#about">About Project</a>
 </div>
 
@@ -102,14 +102,14 @@
     <div class="hero-copy">
       <span class="hero-eyebrow">Device Intelligence Platform</span>
       <h1>Every device follows a decay curve. <em>We read it.</em></h1>
-      <p class="hero-sub">Analyze devices, estimate current resale value, and forecast e-waste trends using AI built on real depreciation patterns — not guesswork.</p>
+      <p class="hero-sub">Analyze electronic devices, assess their physical condition using AI, estimate resale value, explore sustainability insights, and forecast future e-waste trends—all in one intelligent platform.</p>
 
       <div class="hero-cta">
         <a href="#analyze" class="btn btn-primary">
           Analyze Device
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#forecast" class="btn btn-ghost-light">Explore Forecasting</a>
+        <a href="#photo" class="btn btn-ghost-light">Explore Photo Analysis</a>
       </div>
 
       <div class="hero-meta">
@@ -414,6 +414,104 @@
   </div>
 </section>
 
+<!-- ============== RESULTS ============== -->
+<section class="results" id="results">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Analysis Output</span>
+      <h2 id="results-heading">What a completed analysis looks like</h2>
+      <p id="results-subhead">This is a sample report. Submit the form above to generate one for your own device.</p>
+    </div>
+
+    <div class="results-hero reveal">
+      <div class="results-hero-top">
+        <div>
+          <span class="result-device-id mono" id="result-device-id">DEVICE-ID · SAMPLE-0142</span>
+          <h2 id="result-title">iPhone 12 · 128GB · Good condition</h2>
+        </div>
+        <div class="score-badge">
+          <div class="score-num" id="result-grade">B+</div>
+          <div class="score-label">Resale grade</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-grid reveal-stagger">
+      <div class="result-card accent">
+        <span class="card-label">Predicted market value</span>
+        <div class="card-value" id="result-market-value">₹24,800</div>
+        <p class="card-sub">Model output, based on brand, OS, RAM, storage, screen size, and device type.</p>
+      </div>
+      <div class="result-card">
+        <span class="card-label">Current resale value</span>
+        <div class="card-value" id="result-resale-value">₹19,400 <span class="small">est.</span></div>
+        <p class="card-sub" id="result-resale-sub">Adjusted for age and condition.</p>
+      </div>
+      <div class="result-card">
+        <span class="card-label"> Retained Value</span>
+        <div class="card-value" id="result-retained-pct">37<span class="small">%</span></div>
+        <p class="card-sub" id="result-retained-sub">Of predicted market value.</p>
+      </div>
+      <div class="result-card score-card">
+    <span class="card-label">Health Score</span>
+    <div class="card-value" id="result-health-score">--</div>
+    <p class="card-sub">Overall device condition score.</p>
+    </div>
+
+    <div class="result-card score-card">
+    <span class="card-label">Remaining Life</span>
+    <div class="card-value" id="result-remaining-life">--</div>
+    <p class="card-sub">Estimated usable lifespan remaining.</p>
+    </div>
+
+    <div class="result-card score-card">
+    <span class="card-label">Circular Score</span>
+    <div class="card-value" id="result-circular-score">--</div>
+    <p class="card-sub">Sustainability and recovery potential.</p>
+    </div>
+    </div>
+
+    <div class="results-detail">
+      <div class="detail-panel reveal">
+        <h3>Device summary</h3>
+        <div class="detail-row"><span class="k">Device type</span><span class="v" id="detail-device-type">Smartphone</span></div>
+        <div class="detail-row"><span class="k">Brand</span><span class="v" id="detail-brand">Apple</span></div>
+        <div class="detail-row"><span class="k">Operating system</span><span class="v" id="detail-os">iOS</span></div>
+        <div class="detail-row"><span class="k">RAM / Storage</span><span class="v" id="detail-ram-storage">6 GB / 128 GB</span></div>
+        <div class="detail-row"><span class="k">Screen size</span><span class="v" id="detail-screen">6.1 in</span></div>
+        <div class="detail-row"><span class="k">Age</span><span class="v" id="detail-age">26 months</span></div>
+        <div class="detail-row"><span class="k">Condition</span><span class="v" id="detail-condition">Good</span></div>
+      </div>
+
+      <div class="detail-panel reveal">
+        <h3>Recommendation &amp; insights</h3>
+        <div class="insight-item">
+    <span class="insight-icon">💚</span>
+    <p id="insight-health">
+        Device health analysis will appear here.
+    </p>
+</div>
+        <div class="insight-item">
+          <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L9.5 5.5L14 6L10.5 9L11.5 13.5L8 11L4.5 13.5L5.5 9L2 6L6.5 5.5L8 1Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
+          <p id="insight-recommendation"><strong>Refurbish and resell</strong> — at this condition tier, resale recovers more value than trade-in credit.</p>
+        </div>
+        <div class="insight-item">
+          <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 4V9M8 11.5V12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/></svg></span>
+          <p id="insight-condition">Condition analysis will appear here after device evaluation."</p>
+        </div>
+        <div class="insight-item">
+          <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13V8M8 13V3M13 13V6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+          <p id="insight-age">Lifespan and sustainability insights will appear here after analysis.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-actions reveal">
+      <a href="#analyze" class="btn btn-primary">Analyze another device</a>
+    </div>
+  </div>
+</section>
+
 <!-- ============== PHOTO ANALYSIS ============== -->
 <section class="photo" id="photo">
   <div class="container">
@@ -508,6 +606,7 @@
     </div>
 
 </section>
+
 
 <!-- ============== FORECASTING ============== -->
 <section class="forecast" id="forecast">
@@ -757,103 +856,6 @@
   </div>
 </section>
 
-<!-- ============== RESULTS ============== -->
-<section class="results" id="results">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Analysis Output</span>
-      <h2 id="results-heading">What a completed analysis looks like</h2>
-      <p id="results-subhead">This is a sample report. Submit the form above to generate one for your own device.</p>
-    </div>
-
-    <div class="results-hero reveal">
-      <div class="results-hero-top">
-        <div>
-          <span class="result-device-id mono" id="result-device-id">DEVICE-ID · SAMPLE-0142</span>
-          <h2 id="result-title">iPhone 12 · 128GB · Good condition</h2>
-        </div>
-        <div class="score-badge">
-          <div class="score-num" id="result-grade">B+</div>
-          <div class="score-label">Resale grade</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="results-grid reveal-stagger">
-      <div class="result-card accent">
-        <span class="card-label">Predicted market value</span>
-        <div class="card-value" id="result-market-value">₹24,800</div>
-        <p class="card-sub">Model output, based on brand, OS, RAM, storage, screen size, and device type.</p>
-      </div>
-      <div class="result-card">
-        <span class="card-label">Current resale value</span>
-        <div class="card-value" id="result-resale-value">₹19,400 <span class="small">est.</span></div>
-        <p class="card-sub" id="result-resale-sub">Adjusted for age and condition.</p>
-      </div>
-      <div class="result-card">
-        <span class="card-label"> Retained Value</span>
-        <div class="card-value" id="result-retained-pct">37<span class="small">%</span></div>
-        <p class="card-sub" id="result-retained-sub">Of predicted market value.</p>
-      </div>
-      <div class="result-card score-card">
-    <span class="card-label">Health Score</span>
-    <div class="card-value" id="result-health-score">--</div>
-    <p class="card-sub">Overall device condition score.</p>
-    </div>
-
-    <div class="result-card score-card">
-    <span class="card-label">Remaining Life</span>
-    <div class="card-value" id="result-remaining-life">--</div>
-    <p class="card-sub">Estimated usable lifespan remaining.</p>
-    </div>
-
-    <div class="result-card score-card">
-    <span class="card-label">Circular Score</span>
-    <div class="card-value" id="result-circular-score">--</div>
-    <p class="card-sub">Sustainability and recovery potential.</p>
-    </div>
-    </div>
-
-    <div class="results-detail">
-      <div class="detail-panel reveal">
-        <h3>Device summary</h3>
-        <div class="detail-row"><span class="k">Device type</span><span class="v" id="detail-device-type">Smartphone</span></div>
-        <div class="detail-row"><span class="k">Brand</span><span class="v" id="detail-brand">Apple</span></div>
-        <div class="detail-row"><span class="k">Operating system</span><span class="v" id="detail-os">iOS</span></div>
-        <div class="detail-row"><span class="k">RAM / Storage</span><span class="v" id="detail-ram-storage">6 GB / 128 GB</span></div>
-        <div class="detail-row"><span class="k">Screen size</span><span class="v" id="detail-screen">6.1 in</span></div>
-        <div class="detail-row"><span class="k">Age</span><span class="v" id="detail-age">26 months</span></div>
-        <div class="detail-row"><span class="k">Condition</span><span class="v" id="detail-condition">Good</span></div>
-      </div>
-
-      <div class="detail-panel reveal">
-        <h3>Recommendation &amp; insights</h3>
-        <div class="insight-item">
-    <span class="insight-icon">💚</span>
-    <p id="insight-health">
-        Device health analysis will appear here.
-    </p>
-</div>
-        <div class="insight-item">
-          <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L9.5 5.5L14 6L10.5 9L11.5 13.5L8 11L4.5 13.5L5.5 9L2 6L6.5 5.5L8 1Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span>
-          <p id="insight-recommendation"><strong>Refurbish and resell</strong> — at this condition tier, resale recovers more value than trade-in credit.</p>
-        </div>
-        <div class="insight-item">
-          <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 4V9M8 11.5V12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/></svg></span>
-          <p id="insight-condition">Condition analysis will appear here after device evaluation."</p>
-        </div>
-        <div class="insight-item">
-          <span class="insight-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13V8M8 13V3M13 13V6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
-          <p id="insight-age">Lifespan and sustainability insights will appear here after analysis.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="results-actions reveal">
-      <a href="#analyze" class="btn btn-primary">Analyze another device</a>
-    </div>
-  </div>
-</section>
 
 <!-- ============== DASHBOARD ============== -->
 
@@ -1059,6 +1061,9 @@
 </section>
 
 
+
+
+
 <!-- ============== ABOUT / FOOTER ============== -->
 <footer class="site-footer" id="about">
   <div class="container">
@@ -1073,63 +1078,93 @@
           </span>
           E-Waste Device Analyzer
         </div>
-        <p class="footer-tagline">An AI + sustainability platform supporting circular economy decisions, one device at a time.</p>
+        <p class="footer-tagline">
+    E-Waste Device Analyzer is an AI-powered platform that combines Machine Learning and Computer Vision to estimate device value, analyze device condition, forecast future e-waste generation, and promote sustainable disposal through circular economy principles.
+</p>
         <div class="footer-pills">
-          <span class="footer-pill">AI + Sustainability</span>
-          <span class="footer-pill">Circular Economy Initiative</span>
-        </div>
+    <span class="footer-pill">AI Powered</span>
+    <span class="footer-pill">Machine Learning</span>
+    <span class="footer-pill">Computer Vision</span>
+    <span class="footer-pill">Circular Economy</span>
+</div>
       </div>
 
       <div class="footer-col">
-        <h5>Quick Links</h5>
+        <h5>Project Modules</h5>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#analyze">Analyze Device</a></li>
+          <li><a href="#photo">Photo Analysis</a></li>
           <li><a href="#forecast">Forecasting</a></li>
           <li><a href="#dashboard">Dashboard</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#" id="footer-chatbot-link">Ask EcoBot</a></li>
+          <li><a href="#about">About Project</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>Technology Stack</h5>
-        <div class="footer-stack-grid">
-          <span class="stack-chip">Python</span>
-          <span class="stack-chip">Flask</span>
-          <span class="stack-chip">Machine Learning</span>
-          <span class="stack-chip">Random Forest</span>
-          <span class="stack-chip">HTML</span>
-          <span class="stack-chip">CSS</span>
-          <span class="stack-chip">JavaScript</span>
-        </div>
+       <div class="footer-stack-grid">
+    <span class="stack-chip">Python</span>
+    <span class="stack-chip">Flask</span>
+    <span class="stack-chip">Machine Learning</span>
+    <span class="stack-chip">Random Forest</span>
+    <span class="stack-chip">Gemini AI</span>
+    <span class="stack-chip">HTML5</span>
+    <span class="stack-chip">CSS3</span>
+    <span class="stack-chip">JavaScript</span>
+    <span class="stack-chip">Chart.js</span>
+</div>
       </div>
     </div>
 
     <div class="dev-section">
       <div class="dev-card">
-        <div class="dev-photo">JD</div>
+        <div class="dev-photo">GS</div>
         <div class="dev-info">
           <span class="dev-eyebrow mono">Developer</span>
-          <h4>Jordan Dev</h4>
+          <h4>Gurjot Singh</h4>
           <p class="dev-role">Full-Stack Developer &amp; ML Engineer</p>
-          <p class="dev-bio">Built the E-Waste Device Analyzer to make device valuation and circular economy data accessible — combining a Flask backend with a Random Forest valuation model.</p>
-        </div>
+          <p class="dev-bio">
+Designed and developed the E-Waste Device Analyzer, an AI-powered web platform that integrates Machine Learning, Computer Vision, Forecast Analytics, and an intelligent AI assistant to promote sustainable electronic waste management and support circular economy practices.
+</p></div>
         <div class="dev-links">
-          <a href="#" class="dev-link" aria-label="GitHub profile">
+          <a href="https://github.com/SinghGurjot147" class="dev-link" aria-label="GitHub profile">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1C4.6 1 1 4.6 1 9c0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4v-1.5c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.2 1.9.9 2.3.6.1-.5.3-.9.6-1.1-1.8-.2-3.6-.9-3.6-3.9 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3-1.8 3.7-3.6 3.9.3.3.5.8.5 1.5v2.3c0 .2.1.5.5.4C14.7 15.5 17 12.5 17 9c0-4.4-3.6-8-8-8z" fill="currentColor"/></svg>
           </a>
-          <a href="#" class="dev-link" aria-label="LinkedIn profile">
+          <a href="https://www.linkedin.com/in/gurjotsingh710" class="dev-link" aria-label="LinkedIn profile">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 5.5h2.7v9H3.5v-9zM4.85 4.3a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1zM7.8 5.5h2.6v1.2h.03c.36-.68 1.24-1.4 2.55-1.4 2.73 0 3.23 1.8 3.23 4.13v5.07h-2.7v-4.5c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.73 1.17-1.73 2.37v4.58H7.8v-9z" fill="currentColor"/></svg>
           </a>
-          <a href="#" class="dev-link" aria-label="Email">
+          <a href="mailto:gurjotsingh710@outlook.com" class="dev-link" aria-label="Email">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1.5" y="3.5" width="15" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 4.5L9 10L16 4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-          </a>
-          <a href="#" class="dev-link" aria-label="Portfolio website">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 9H16.5M9 1.5C11 3.5 12 6 12 9C12 12 11 14.5 9 16.5C7 14.5 6 12 6 9C6 6 7 3.5 9 1.5Z" stroke="currentColor" stroke-width="1.2"/></svg>
           </a>
         </div>
       </div>
     </div>
+
+<div class="project-stats">
+
+    <div class="project-stat">
+        <h3>5</h3>
+        <span>Core Modules</span>
+    </div>
+
+    <div class="project-stat">
+        <h3>2</h3>
+        <span>AI Technologies</span>
+    </div>
+
+    <div class="project-stat">
+        <h3>3</h3>
+        <span>Supported Devices</span>
+    </div>
+
+    <div class="project-stat">
+        <h3>100%</h3>
+        <span>Web Based</span>
+    </div>
+
+</div>
 
     <div class="footer-bottom">
       <span>© 2026 E-Waste Device Analyzer. Built as a sustainability + AI initiative.</span>
